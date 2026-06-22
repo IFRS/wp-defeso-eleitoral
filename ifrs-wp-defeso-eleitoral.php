@@ -211,9 +211,7 @@ if ( ! class_exists( 'IFRS_Defeso_Eleitoral_MU' ) ) {
 			}
 
 			if ( ! self::post_matches_cutoff( $post ) ) {
-				global $wp_query;
-				$wp_query->set_404();
-				status_header( 404 );
+				status_header( 451 );
 				nocache_headers();
 				include get_query_template( '404' );
 				exit;
