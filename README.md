@@ -25,7 +25,7 @@ As opções são definidas via constantes PHP, preferencialmente no `wp-config.p
 | `IFRS_DEFESO_ENABLED` | `true` | Ativa ou desativa o plugin |
 | `IFRS_DEFESO_CUTOFF` | `'2026-01-01 00:00:00'` | Data/hora de corte (fuso horário do site) |
 | `IFRS_DEFESO_POST_TYPES` | `['post']` | Array com os post types filtrados |
-| `IFRS_DEFESO_BLOCK_SINGLES` | `true` | Retorna 404 para posts individuais anteriores ao corte |
+| `IFRS_DEFESO_BLOCK_SINGLES` | `true` | Retorna `451 Unavailable For Legal Reasons` para posts individuais anteriores ao corte |
 | `IFRS_DEFESO_APPLY_TO_FEEDS` | `true` | Aplica o filtro também aos feeds RSS/Atom |
 
 ### Exemplo
@@ -43,7 +43,7 @@ define( 'IFRS_DEFESO_APPLY_TO_FEEDS', true );
 
 - **Listagens, arquivos e buscas:** posts anteriores à data de corte são excluídos das queries principais.
 - **REST API:** o filtro é aplicado nas rotas padrão de posts e na busca via API.
-- **Posts individuais:** se `IFRS_DEFESO_BLOCK_SINGLES` estiver ativo, acessar a URL de um post anterior ao corte retorna HTTP 404.
+- **Posts individuais:** se `IFRS_DEFESO_BLOCK_SINGLES` estiver ativo, acessar a URL de um post anterior ao corte retorna HTTP `451 Unavailable For Legal Reasons`.
 - **Painel administrativo:** nenhum conteúdo é ocultado no admin.
 
 ## Licença
