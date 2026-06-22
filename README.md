@@ -4,7 +4,7 @@ Plugin WordPress para ocultar conteúdos publicados antes de uma data de corte e
 
 ## Descrição
 
-Durante o período eleitoral, a legislação brasileira restringe a divulgação de conteúdos institucionais por órgãos públicos. Este plugin filtra automaticamente posts anteriores à data de corte definida, impedindo sua exibição em listagens, arquivos, buscas, feeds e páginas individuais.
+Durante o período eleitoral, a legislação brasileira restringe a divulgação de conteúdos institucionais por órgãos públicos. Este plugin filtra automaticamente posts (notícias) anteriores à data de corte definida, impedindo sua exibição em listagens, arquivos, buscas, feeds e páginas individuais.
 
 ## Requisitos
 
