@@ -140,7 +140,7 @@ if ( ! class_exists( 'IFRS_Defeso_Eleitoral_MU' ) ) {
 		}
 
 		private static function should_filter_query( $query ) {
-			if ( is_admin() || ! $query->is_main_query() ) {
+			if ( is_admin() ) {
 				return false;
 			}
 
@@ -152,12 +152,16 @@ if ( ! class_exists( 'IFRS_Defeso_Eleitoral_MU' ) ) {
 				return false;
 			}
 
-			return (
-				$query->is_home() ||
-				$query->is_archive() ||
-				$query->is_search() ||
-				( IFRS_DEFESO_APPLY_TO_FEEDS && $query->is_feed() )
-			);
+			if ( $query->is_main_query() ) {
+				return (
+					$query->is_home() ||
+					$query->is_archive() ||
+					$query->is_search() ||
+					( IFRS_DEFESO_APPLY_TO_FEEDS && $query->is_feed() )
+				);
+			}
+
+			return true;
 		}
 
 		public static function filter_main_query( $query ) {
@@ -177,6 +181,10 @@ if ( ! class_exists( 'IFRS_Defeso_Eleitoral_MU' ) ) {
 
 		public static function filter_posts_clauses( $clauses, $query ) {
 			if ( is_admin() || ! ( $query instanceof WP_Query ) ) {
+				return $clauses;
+			}
+
+			if ( ! self::should_filter_query( $query ) ) {
 				return $clauses;
 			}
 
